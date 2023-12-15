@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+
+#define TAM 1
+
+struct dados_aluno
+{
+    char nome[200];
+    char data_nascimento[200];
+    float notas[2];
+    float media;
+};
+
+void calcularMedia(struct dados_aluno *aluno)
+{
+    int i;
+    int j;
+    float somaNotas = 0;
+
+    for (i = 0; i < TAM; i++)
+    {
+        for (j = 0; j < TAM; j++)
+
+        {
+            somaNotas = somaNotas + aluno[i].notas[j];
+        }
+        aluno[i].media = somaNotas / j;
+    }
+        somaNotas = 0;
+}
+
+int main()
+{
+
+    struct dados_aluno aluno[TAM];
+    int i = 0;
+    int j = 0;
+
+    for (i = 0; i < 1; i++)
+    {
+        for (j = 0; j < TAM; j++)
+        {
+            fflush(stdin);
+            printf("Digite o nome do %d aluno:", j + 1);
+            gets(aluno[i].nome);
+            fflush(stdin);
+            printf("Digite a data de nascimento do %d aluno:", j + 1);
+            gets(aluno[i].data_nascimento);
+            fflush(stdin);
+            printf("Digite a %d nota do %d aluno:", i + 1, j + 1);
+            scanf("%f", &aluno[i].notas[j]);
+            printf("Digite a %d nota do %d aluno:", i + 2, j + 1);
+            scanf("%f", &aluno[i].notas[j]);
+        }
+    }
+
+    system("CLS");
+
+    for (i = 0; i < TAM; i++)
+    {
+        printf("\nNome do %d aluno: %s", i + 1, aluno[i].nome);
+        printf("\nData de nascimento do %d aluno: %s", i + 1, aluno[i].data_nascimento);
+        printf("\nMedia do %d aluno: %f", i + 1, aluno[i].media);
+        
+        if (aluno[i].media >= 7)
+        {
+            printf("\nAluno aprovado");
+        }
+        else
+        {
+            printf("\nAluno reprovado");
+        }
+    }
+
+    return 0;
+}
