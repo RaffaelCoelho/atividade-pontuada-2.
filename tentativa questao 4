@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <string.h>
+
+
+struct conta_bancaria
+{
+    char numero_da_conta;
+    char nome;
+    float saldo;
+    char tipo_de_conta;
+};
+
+int main()
+{
+    int codigo[50];
+    int i;
+    struct conta_bancaria cliente;
+    float valor_deposito[50][50];
+    float valor_saque[50][50];
+
+    printf("Digite seu nome:");
+    gets(cliente.nome);
+
+    printf("Digite seu numero da conta:");
+    gets(cliente.numero_da_conta);
+
+    printf("Digite seu saldo:");
+    scanf("%f" , &cliente.saldo);
+
+    printf("Digite seu tipo de conta:");
+    gets(cliente.tipo_de_conta);
+
+    for (i = 0; i < 50; i++)
+    {
+
+        printf("--------MENU--------\n");
+        printf("\n1 - Depositar");
+        printf("\n2 - Sacar");
+        printf("\n3 - Ver o saldo atual");
+        printf("\n4 - Sair do programa");
+
+        printf("\n\nDigite seu codigo:");
+        scanf("%d", &codigo[i]);
+
+        if (codigo[i] == 1)
+        {
+
+            print("Digite o valor que deseja depositar:");
+            scanf("%f" , &valor_deposito[i]);
+
+            cliente.saldo = cliente.saldo + valor_deposito[i];
+        }
+
+        if (codigo[i] == 2)
+        {
+            print("Digite o valor que deseja sacar:");
+            scanf("%f" , &valor_saque[i]);
+          
+           cliente.saldo = cliente.saldo - valor_saque[i];
+       
+        }
+
+        if (codigo == 3)
+        {
+           printf("Saldo atual: %f" , cliente.saldo);
+        }
+
+        if (codigo == 4)
+        {
+            abort();
+        }
+    }
+
+    return 0;
+}
